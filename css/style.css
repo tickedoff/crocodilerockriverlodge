@@ -119,6 +119,46 @@ a:hover {
 }
 
 /* ===========================
+   Map
+   =========================== */
+.map {
+  line-height: 0;
+}
+
+/* ===========================
+   Getting Here
+   =========================== */
+.getting-here {
+  background: #f0ebe0;
+}
+
+.getting-here h3 {
+  font-size: clamp(1.1rem, 2.2vw, 1.4rem);
+  color: #2c4a1e;
+  margin-top: 2rem;
+  margin-bottom: 0.6rem;
+}
+
+.getting-here ul {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 0.8rem;
+}
+
+.getting-here ul li {
+  padding: 0.35rem 0 0.35rem 1.4rem;
+  position: relative;
+}
+
+.getting-here ul li::before {
+  content: '→';
+  position: absolute;
+  left: 0;
+  color: #5a8a3c;
+  font-style: normal;
+}
+
+/* ===========================
    Footer
    =========================== */
 footer {
