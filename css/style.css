@@ -10,6 +10,7 @@
 html {
   scroll-behavior: smooth;
   font-size: 16px;
+  overflow-x: clip;
 }
 
 body {
@@ -17,11 +18,13 @@ body {
   color: #2c2c2c;
   line-height: 1.7;
   background: #faf7f2;
+  overflow-x: clip;
 }
 
 a {
   color: #5a8a3c;
   text-decoration: none;
+  overflow-wrap: anywhere;
 }
 
 a:hover {
@@ -123,6 +126,10 @@ a:hover {
    =========================== */
 .map {
   line-height: 0;
+}
+
+.map iframe {
+  max-width: 100%;
 }
 
 /* ===========================
