@@ -107,8 +107,8 @@
       --bg-surface:   #122018;
       --bg-mid:       #1E3A28;
       --terracotta:   #B85A28;
-      --ochre:        #3D6630;
-      --gold:         #5A8A48;
+      --ochre:        #70A848;
+      --gold:         #7CBD5A;
       --gold-light:   #F0D080;
       --amber:        #B8882A;
       --amber-dark:   #8A6018;
@@ -691,6 +691,7 @@
 
     .features-header .section-eyebrow {
       justify-content: center;
+      color: var(--earth-mid);
     }
 
     .features-header .section-eyebrow::before { display: none; }
@@ -913,7 +914,7 @@
     .animal-note {
       font-size: 0.8rem;
       font-style: italic;
-      color: rgba(245,237,216,0.5);
+      color: rgba(245,237,216,0.72);
       font-weight: 300;
     }
 
@@ -926,6 +927,8 @@
     .accom-header {
       margin-bottom: 3.5rem;
     }
+
+    .accom-header .section-eyebrow { color: var(--earth-mid); }
 
     .accom-header .section-title {
       font-size: clamp(1.8rem, 3vw, 2.6rem);
@@ -1129,7 +1132,7 @@
     .power-text-desc {
       font-size: 0.9rem;
       font-weight: 400;
-      color: rgba(26,18,8,0.7);
+      color: var(--earth-deep);
       max-width: 500px;
       line-height: 1.7;
     }
@@ -1157,7 +1160,7 @@
       font-size: 0.52rem;
       letter-spacing: 0.2em;
       text-transform: uppercase;
-      color: rgba(26,18,8,0.6);
+      color: var(--earth-mid);
       margin-top: 0.3rem;
       display: block;
     }
