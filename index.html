@@ -303,7 +303,7 @@
       transition: opacity 1.8s ease-in-out;
     }
 
-    .hero-slide.active { opacity: 0.55; }
+    .hero-slide.active { opacity: 0.45; }
 
     .hero-slide:nth-child(1) { background-image: url('images/lodge-pool-night.webp'); }
     .hero-slide:nth-child(2) { background-image: url('images/pool-river-trees.webp'); }
@@ -317,7 +317,7 @@
       inset: 0;
       background:
         radial-gradient(ellipse 70% 70% at 50% 50%, transparent 40%, rgba(11, 9, 5, 0.6) 100%),
-        linear-gradient(to top, rgba(11, 9, 5, 0.95) 0%, rgba(11, 9, 5, 0.3) 40%, transparent 100%);
+        linear-gradient(to top, rgba(11, 9, 5, 0.98) 0%, rgba(11, 9, 5, 0.7) 35%, rgba(11, 9, 5, 0.2) 60%, transparent 100%);
     }
 
     /* Decorative river line */
@@ -349,6 +349,7 @@
       display: flex;
       align-items: center;
       gap: 1rem;
+      text-shadow: 0 1px 6px rgba(0,0,0,0.8);
     }
 
     .hero-eyebrow::before {
@@ -369,7 +370,7 @@
       opacity: 0;
       transform: translateY(30px);
       animation: fadeUp 1.1s 0.5s forwards;
-      text-shadow: 0 2px 40px rgba(0,0,0,0.5);
+      text-shadow: 0 2px 8px rgba(0,0,0,0.9), 0 4px 40px rgba(0,0,0,0.7);
     }
 
     .hero-title em {
@@ -387,6 +388,7 @@
       opacity: 0;
       transform: translateY(20px);
       animation: fadeUp 1s 0.8s forwards;
+      text-shadow: 0 1px 6px rgba(0,0,0,0.8);
     }
 
     .hero-divider {
@@ -407,6 +409,7 @@
       line-height: 1.8;
       opacity: 0;
       animation: fadeIn 1s 1.3s forwards;
+      text-shadow: 0 1px 6px rgba(0,0,0,0.8);
     }
 
     .hero-actions {
@@ -1895,7 +1898,7 @@
       <div class="feature-card reveal">
         <span class="feature-icon">🛻</span>
         <div class="feature-title">Private Game Drives</div>
-        <p class="feature-desc">Exclusive use of our safari vehicle &amp; Mjejane guide. 3-hour drive from R2,100 · Full Kruger day from R4,800/vehicle. Self-drive via Malelane or Crocodile Bridge gates.</p>
+        <p class="feature-desc">Game driving within Mjejane Reserve is only permitted with a qualified Mjejane guide and official safari vehicle. Exclusive lodge bookings include access to a dedicated vehicle and guide. Mjejane Game Drive — R2,100 per drive (3 hours). Full Kruger Day — R4,800 per vehicle, depart 05h30, return ~14h00.</p>
       </div>
       <div class="feature-card reveal">
         <span class="feature-icon">♿</span>
@@ -2131,7 +2134,6 @@
           <li>Bed linens, extra pillows &amp; blankets</li>
           <li>Towels, soap &amp; toilet paper</li>
           <li>Hangers &amp; clothing storage — wardrobe</li>
-          <li>In-room safe</li>
           <li>Iron &amp; drying rack for clothing</li>
           <li>Free washer &amp; dryer — in building</li>
           <li>Outdoor shower &amp; hot water</li>
