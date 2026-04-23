@@ -11,9 +11,7 @@
   <link rel="preload" as="image" href="images/lodge-pool-night.webp" type="image/webp">
 
   <!-- Favicon -->
-  <link rel="icon" type="image/png" sizes="32x32" href="/favicon.png">
-  <link rel="icon" type="image/png" sizes="16x16" href="/favicon.png">
-  <link rel="apple-touch-icon" sizes="180x180" href="/favicon.png">
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
   <meta name="theme-color" content="#0B0905">
 
   <!-- Canonical -->
@@ -94,7 +92,9 @@
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600&family=Cinzel+Decorative&family=Spectral:ital,wght@0,300;0,400;0,500;1,300;1,400&display=swap" rel="stylesheet">
+  <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600&family=Cinzel+Decorative&family=Spectral:ital,wght@0,300;0,400;0,500;1,300;1,400&display=swap">
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600&family=Cinzel+Decorative&family=Spectral:ital,wght@0,300;0,400;0,500;1,300;1,400&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
+  <noscript><link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600&family=Cinzel+Decorative&family=Spectral:ital,wght@0,300;0,400;0,500;1,300;1,400&display=swap" rel="stylesheet"></noscript>
 
   <style>
     /* ─── Reset & Base ─── */
@@ -145,6 +145,24 @@
     ::-webkit-scrollbar-track { background: var(--earth-deep); }
     ::-webkit-scrollbar-thumb { background: var(--ochre); border-radius: 3px; }
 
+    /* ─── Skip link ─── */
+    .skip-link {
+      position: absolute;
+      top: -40px;
+      left: 1rem;
+      background: var(--gold);
+      color: var(--earth-deep);
+      padding: 0.6rem 1rem;
+      font-family: var(--font-display);
+      font-size: 0.75rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      text-decoration: none;
+      z-index: 200;
+      transition: top 0.2s ease;
+    }
+    .skip-link:focus { top: 0.75rem; }
+
     /* ─── Navigation ─── */
     nav {
       position: fixed;
@@ -176,7 +194,7 @@
     .nav-logo span {
       display: block;
       font-family: var(--font-display);
-      font-size: 0.6rem;
+      font-size: 0.7rem;
       font-weight: 400;
       letter-spacing: 0.35em;
       color: var(--text-muted);
@@ -266,17 +284,7 @@
     .hero-bg {
       position: absolute;
       inset: 0;
-      background:
-        radial-gradient(ellipse 80% 60% at 50% 30%, rgba(26, 46, 56, 0.3) 0%, transparent 70%),
-        radial-gradient(ellipse 60% 80% at 20% 80%, rgba(184, 90, 40, 0.2) 0%, transparent 60%),
-        linear-gradient(175deg, #0B1215 0%, #1A2010 25%, #2E1A08 55%, #0B0905 100%);
-      animation: heroShift 20s ease-in-out infinite alternate;
-    }
-
-    @keyframes heroShift {
-      0%   { filter: hue-rotate(0deg) brightness(1); }
-      50%  { filter: hue-rotate(5deg) brightness(1.08); }
-      100% { filter: hue-rotate(-3deg) brightness(0.95); }
+      background: var(--earth-deep);
     }
 
     /* Animated grain texture */
@@ -305,19 +313,10 @@
 
     .hero-slide.active { opacity: 0.45; }
 
-    .hero-slide:nth-child(1) { background-image: url('images/lodge-pool-night.webp'); }
-    .hero-slide:nth-child(2) { background-image: url('images/pool-river-trees.webp'); }
-    .hero-slide:nth-child(3) { background-image: url('images/pool-buffalo-river.webp'); }
-    .hero-slide:nth-child(4) { background-image: url('images/kitchen-interior.webp'); }
-    .hero-slide:nth-child(5) { background-image: url('images/dining-lounge-interior.webp'); }
-    .hero-slide:nth-child(6) { background-image: url('images/stoep-pool-river.webp'); }
-
     .hero-vignette {
       position: absolute;
       inset: 0;
-      background:
-        radial-gradient(ellipse 70% 70% at 50% 50%, transparent 40%, rgba(11, 9, 5, 0.6) 100%),
-        linear-gradient(to top, rgba(11, 9, 5, 0.98) 0%, rgba(11, 9, 5, 0.7) 35%, rgba(11, 9, 5, 0.2) 60%, transparent 100%);
+      background: linear-gradient(to top, rgba(11, 9, 5, 0.98) 0%, rgba(11, 9, 5, 0.65) 40%, rgba(11, 9, 5, 0.15) 70%, transparent 100%);
     }
 
     /* Decorative river line */
@@ -471,7 +470,7 @@
 
     .scroll-indicator span {
       font-family: var(--font-display);
-      font-size: 0.55rem;
+      font-size: 0.7rem;
       letter-spacing: 0.3em;
       text-transform: uppercase;
       color: var(--text-muted);
@@ -531,7 +530,7 @@
 
     .section-eyebrow {
       font-family: var(--font-display);
-      font-size: 0.6rem;
+      font-size: 0.7rem;
       letter-spacing: 0.45em;
       text-transform: uppercase;
       color: var(--ochre);
@@ -613,7 +612,7 @@
 
     .stat-label {
       font-family: var(--font-display);
-      font-size: 0.58rem;
+      font-size: 0.7rem;
       letter-spacing: 0.3em;
       text-transform: uppercase;
       color: var(--text-muted);
@@ -670,7 +669,7 @@
       padding: 1rem 1.2rem;
       background: linear-gradient(to top, rgba(11, 9, 5, 0.85), transparent);
       font-family: var(--font-display);
-      font-size: 0.55rem;
+      font-size: 0.7rem;
       letter-spacing: 0.25em;
       text-transform: uppercase;
       color: var(--sand);
@@ -804,7 +803,7 @@
 
     .gallery-caption {
       font-family: var(--font-display);
-      font-size: 0.55rem;
+      font-size: 0.7rem;
       letter-spacing: 0.25em;
       text-transform: uppercase;
       color: var(--cream);
@@ -969,7 +968,7 @@
       position: absolute;
       top: 1rem; right: 1rem;
       font-family: var(--font-display);
-      font-size: 0.55rem;
+      font-size: 0.7rem;
       letter-spacing: 0.25em;
       text-transform: uppercase;
       background: var(--gold);
@@ -992,7 +991,7 @@
 
     .room-sub {
       font-family: var(--font-display);
-      font-size: 0.6rem;
+      font-size: 0.7rem;
       letter-spacing: 0.2em;
       text-transform: uppercase;
       color: var(--ochre);
@@ -1015,7 +1014,7 @@
 
     .room-feat {
       font-family: var(--font-display);
-      font-size: 0.52rem;
+      font-size: 0.7rem;
       letter-spacing: 0.15em;
       text-transform: uppercase;
       border: 1px solid rgba(226, 185, 74, 0.25);
@@ -1152,7 +1151,7 @@
 
     .power-spec-label {
       font-family: var(--font-display);
-      font-size: 0.52rem;
+      font-size: 0.7rem;
       letter-spacing: 0.2em;
       text-transform: uppercase;
       color: rgba(26,18,8,0.6);
@@ -1225,7 +1224,7 @@
 
     .contact-item-label {
       font-family: var(--font-display);
-      font-size: 0.55rem;
+      font-size: 0.7rem;
       letter-spacing: 0.3em;
       text-transform: uppercase;
       color: var(--ochre);
@@ -1267,7 +1266,7 @@
 
     .form-group label {
       font-family: var(--font-display);
-      font-size: 0.55rem;
+      font-size: 0.7rem;
       letter-spacing: 0.25em;
       text-transform: uppercase;
       color: var(--text-muted);
@@ -1339,7 +1338,7 @@
 
     .footer-copy {
       font-family: var(--font-display);
-      font-size: 0.55rem;
+      font-size: 0.7rem;
       letter-spacing: 0.2em;
       text-transform: uppercase;
       color: var(--text-muted);
@@ -1360,7 +1359,7 @@
 
     .footer-social a {
       font-family: var(--font-display);
-      font-size: 0.55rem;
+      font-size: 0.7rem;
       letter-spacing: 0.25em;
       text-transform: uppercase;
       color: var(--text-muted);
@@ -1450,14 +1449,14 @@
 
     .lightbox-counter {
       font-family: var(--font-display);
-      font-size: 0.6rem;
+      font-size: 0.7rem;
       letter-spacing: 0.3em;
       color: var(--text-muted);
     }
 
     .lightbox-caption-lb {
       font-family: var(--font-display);
-      font-size: 0.6rem;
+      font-size: 0.7rem;
       letter-spacing: 0.25em;
       text-transform: uppercase;
       color: var(--sand);
@@ -1510,7 +1509,8 @@
       footer { padding: 2rem 3rem; }
       nav { padding: 1.2rem 2rem; }
       nav.scrolled { padding: 0.8rem 2rem; }
-      .hero-content { padding: 0 3rem 6rem; }
+      .hero-content { padding: 7rem 3rem 6rem; }
+      #hero { align-items: flex-start; }
     }
 
     /* ─── Hamburger toggle ─── */
@@ -1661,7 +1661,7 @@
     .gallery-filter-btn.active {
       background: var(--gold);
       border-color: var(--gold);
-      color: var(--dark);
+      color: var(--earth-deep);
     }
     .gallery-item.hidden {
       display: none;
@@ -1743,19 +1743,16 @@
 </head>
 <body>
 
+  <a class="skip-link" href="#main">Skip to content</a>
+
   <!-- Navigation -->
-  <nav id="navbar">
-    <a href="#" class="nav-logo">
+  <nav id="navbar" aria-label="Primary">
+    <a href="#top" class="nav-logo">
       CRRL
 </a>
     <ul class="nav-links">
       <li><a href="#about">The Lodge</a></li>
-      <li class="nav-has-sub"><a href="accommodation-gallery.html">Gallery</a>
-        <ul class="nav-sub">
-          <li><a href="accommodation-gallery.html">Accommodation Gallery</a></li>
-          <li><a href="wildlife-gallery.html">Wildlife Gallery</a></li>
-        </ul>
-      </li>
+      <li><a href="#gallery">Gallery</a></li>
       <li><a href="#accommodation">Accommodation</a></li>
       <li><a href="#amenities">Amenities</a></li>
       <li><a href="#contact" class="nav-cta">Enquire Now</a></li>
@@ -1770,24 +1767,25 @@
   <!-- Mobile overlay menu -->
   <div class="mobile-menu" id="mobileMenu" role="dialog" aria-modal="true" aria-label="Navigation menu">
     <a href="#about">The Lodge</a>
-    <a href="accommodation-gallery.html">Accommodation Gallery</a>
-    <a href="wildlife-gallery.html">Wildlife Gallery</a>
+    <a href="#gallery">Gallery</a>
     <a href="#accommodation">Accommodation</a>
     <a href="#amenities">Amenities</a>
     <a href="#contact" class="mobile-cta">Enquire Now</a>
   </div>
+
+  <main id="main">
 
   <!-- Hero -->
   <section id="hero">
     <div class="hero-bg"></div>
     <div class="hero-grain"></div>
     <div class="hero-slides" id="heroSlides">
-      <div class="hero-slide active"></div>
-      <div class="hero-slide"></div>
-      <div class="hero-slide"></div>
-      <div class="hero-slide"></div>
-      <div class="hero-slide"></div>
-      <div class="hero-slide"></div>
+      <div class="hero-slide active" style="background-image: url('images/lodge-pool-night.webp');"></div>
+      <div class="hero-slide" data-bg="images/pool-river-trees.webp"></div>
+      <div class="hero-slide" data-bg="images/pool-buffalo-river.webp"></div>
+      <div class="hero-slide" data-bg="images/kitchen-interior.webp"></div>
+      <div class="hero-slide" data-bg="images/dining-lounge-interior.webp"></div>
+      <div class="hero-slide" data-bg="images/stoep-pool-river.webp"></div>
     </div>
     <div class="hero-vignette"></div>
     <div class="hero-river-line"></div>
@@ -1871,7 +1869,7 @@
     <div class="about-right reveal">
       <div class="about-img-stack">
         <div class="about-img-main">
-          <img src="images/firepit-river.webp" alt="Fire pit overlooking the Crocodile River and Kruger National Park" loading="lazy">
+          <img src="images/firepit-river.webp" alt="Fire pit overlooking the Crocodile River and Kruger National Park" width="4032" height="3024" loading="lazy">
           <div class="img-label">Fire pit · Crocodile River views</div>
         </div>
       </div>
@@ -1916,45 +1914,41 @@
     </div>
     <div class="gallery-masonry" id="galleryMasonry">
       <div class="gallery-item" data-index="0">
-        <img src="images/pool-river.webp" alt="Infinity pool overlooking the Crocodile River and Kruger National Park" loading="lazy">
+        <img src="images/pool-river.webp" alt="Infinity pool overlooking the Crocodile River and Kruger National Park" width="4032" height="3024" loading="lazy">
         <div class="gallery-overlay"><span class="gallery-caption">Infinity Pool · Kruger Views</span></div>
       </div>
       <div class="gallery-item" data-index="1">
-        <img src="images/elephants-river.webp" alt="Herd of elephants crossing the Crocodile River" loading="lazy">
+        <img src="images/elephants-river.webp" alt="Herd of elephants crossing the Crocodile River" width="1280" height="960" loading="lazy">
         <div class="gallery-overlay"><span class="gallery-caption">Elephant Herd · The River</span></div>
       </div>
       <div class="gallery-item" data-index="2">
-        <img src="images/lodge-night.webp" alt="Lodge exterior at night with pool illuminated" loading="lazy">
+        <img src="images/lodge-night.webp" alt="Lodge exterior at night with pool illuminated" width="1772" height="1181" loading="lazy">
         <div class="gallery-overlay"><span class="gallery-caption">Lodge at Night</span></div>
       </div>
       <div class="gallery-item" data-index="3">
-        <img src="images/hippos.webp" alt="Hippos in the Crocodile River at sunset" loading="lazy">
+        <img src="images/hippos.webp" alt="Hippos in the Crocodile River at sunset" width="5184" height="3888" loading="lazy">
         <div class="gallery-overlay"><span class="gallery-caption">Hippos · Crocodile River</span></div>
       </div>
       <div class="gallery-item" data-index="4">
-        <img src="images/pool-wide.webp" alt="Wide view of the infinity pool and surrounding deck" loading="lazy">
+        <img src="images/pool-wide.webp" alt="Wide view of the infinity pool and surrounding deck" width="1200" height="900" loading="lazy">
         <div class="gallery-overlay"><span class="gallery-caption">Pool Deck</span></div>
       </div>
       <div class="gallery-item" data-index="5">
-        <img src="images/kudu-leaping.webp" alt="Kudu bull leaping the fence at golden hour" loading="lazy">
+        <img src="images/kudu-leaping.webp" alt="Kudu bull leaping the fence at golden hour" width="977" height="960" loading="lazy">
         <div class="gallery-overlay"><span class="gallery-caption">Kudu Leaping the Fence</span></div>
       </div>
       <div class="gallery-item" data-index="6">
-        <img src="images/aerial.webp" alt="Aerial view of Crocodile Rock River Lodge" loading="lazy">
+        <img src="images/aerial.webp" alt="Aerial view of Crocodile Rock River Lodge" width="1280" height="720" loading="lazy">
         <div class="gallery-overlay"><span class="gallery-caption">Aerial View</span></div>
       </div>
       <div class="gallery-item" data-index="7">
-        <img src="images/dining-night.webp" alt="Open-plan dining area at night with beamed ceiling" loading="lazy">
+        <img src="images/dining-night.webp" alt="Open-plan dining area at night with beamed ceiling" width="1280" height="853" loading="lazy">
         <div class="gallery-overlay"><span class="gallery-caption">Dining Room at Night</span></div>
       </div>
       <div class="gallery-item" data-index="8">
-        <img src="images/pool-buffalo.webp" alt="Infinity pool with herd of 200 buffalo at the Crocodile River" loading="lazy">
+        <img src="images/pool-buffalo.webp" alt="Infinity pool with herd of 200 buffalo at the Crocodile River" width="1280" height="960" loading="lazy">
         <div class="gallery-overlay"><span class="gallery-caption">200 Buffalo · Crocodile River</span></div>
       </div>
-    </div>
-    <div class="gallery-view-all reveal">
-      <a href="accommodation-gallery.html" class="btn-ghost" style="margin-right:1rem;">Accommodation Gallery</a>
-      <a href="wildlife-gallery.html" class="btn-ghost">Wildlife Gallery</a>
     </div>
   </section>
 
@@ -2003,7 +1997,7 @@
         </div>
       </div>
       <div style="margin-top: 2.5rem; padding-top: 2rem; border-top: 1px solid rgba(226, 185, 74, 0.15);" class="reveal">
-        <div style="font-family:var(--font-display); font-size:0.6rem; letter-spacing:0.25em; text-transform:uppercase; color:var(--gold); margin-bottom:0.75rem;">Birdlife</div>
+        <div style="font-family:var(--font-display); font-size:0.72rem; letter-spacing:0.25em; text-transform:uppercase; color:var(--gold); margin-bottom:0.75rem;">Birdlife</div>
         <p style="font-size:0.9rem; font-weight:300; color:rgba(245,237,216,0.75); line-height:1.85; max-width:780px; margin:0 auto; text-align:center;">
           The birding here is simply impressive. From African Spoonbills to Fish Eagles, from Goliath Herons to Woodland Kingfishers, this stretch of river and bushveld draws a remarkable variety of species that will delight both seasoned birders and first-time visitors alike.
         </p>
@@ -2184,37 +2178,37 @@
         <div style="background:var(--earth-dark); padding:2rem; position:relative;">
           <div style="color:var(--gold); font-size:0.85rem; margin-bottom:1rem; letter-spacing:0.1em;">★★★★★</div>
           <p style="font-family:var(--font-body); font-size:0.95rem; font-weight:300; font-style:italic; color:rgba(245,237,216,0.8); line-height:1.8; margin-bottom:1.5rem;">"Incredible two-week stay! The views from the patio and pool were spectacular — we watched elephants, hippos, crocodiles, and more right from the house. Game drives with Ernest were engaging and informative. Priscilla, Bongani, and Nsiki took wonderful care of us. John was incredibly helpful and consistently responsive throughout. A truly memorable experience — we look forward to returning!"</p>
-          <div style="font-family:var(--font-display); font-size:0.6rem; letter-spacing:0.25em; text-transform:uppercase; color:var(--ochre);">Monica &nbsp;·&nbsp; <span style="color:var(--text-muted);">Vancouver, Canada · February 2026 · Group trip</span></div>
+          <div style="font-family:var(--font-display); font-size:0.72rem; letter-spacing:0.25em; text-transform:uppercase; color:var(--ochre);">Monica &nbsp;·&nbsp; <span style="color:var(--text-muted);">Vancouver, Canada · February 2026 · Group trip</span></div>
         </div>
 
         <div style="background:var(--earth-dark); padding:2rem; position:relative;">
           <div style="color:var(--gold); font-size:0.85rem; margin-bottom:1rem; letter-spacing:0.1em;">★★★★★</div>
           <p style="font-family:var(--font-body); font-size:0.95rem; font-weight:300; font-style:italic; color:rgba(245,237,216,0.8); line-height:1.8; margin-bottom:1.5rem;">"We absolutely loved our stay. Truly a home away from home. Ernst our game ranger was phenomenal — honestly the best we've ever had. The game viewing was completely out of this world. John, our host, was amazing — thank you for great communication throughout. We will definitely be back soon!"</p>
-          <div style="font-family:var(--font-display); font-size:0.6rem; letter-spacing:0.25em; text-transform:uppercase; color:var(--ochre);">Monique &nbsp;·&nbsp; <span style="color:var(--text-muted);">Johannesburg · December 2025 · Group trip</span></div>
+          <div style="font-family:var(--font-display); font-size:0.72rem; letter-spacing:0.25em; text-transform:uppercase; color:var(--ochre);">Monique &nbsp;·&nbsp; <span style="color:var(--text-muted);">Johannesburg · December 2025 · Group trip</span></div>
         </div>
 
         <div style="background:var(--earth-dark); padding:2rem; position:relative;">
           <div style="color:var(--gold); font-size:0.85rem; margin-bottom:1rem; letter-spacing:0.1em;">★★★★★</div>
           <p style="font-family:var(--font-body); font-size:0.95rem; font-weight:300; font-style:italic; color:rgba(245,237,216,0.8); line-height:1.8; margin-bottom:1.5rem;">"A truly magnificent place with unspoilt views of the Crocodile River and Kruger National Park. Extremely well furnished with everything one needs to self cater. A cleaning team that comes in daily to ensure the place looks pristine. We had an abundance of animals right on the fence. We'll definitely book again!"</p>
-          <div style="font-family:var(--font-display); font-size:0.6rem; letter-spacing:0.25em; text-transform:uppercase; color:var(--ochre);">Joe &nbsp;·&nbsp; <span style="color:var(--text-muted);">October 2025 · Stayed with kids</span></div>
+          <div style="font-family:var(--font-display); font-size:0.72rem; letter-spacing:0.25em; text-transform:uppercase; color:var(--ochre);">Joe &nbsp;·&nbsp; <span style="color:var(--text-muted);">October 2025 · Stayed with kids</span></div>
         </div>
 
         <div style="background:var(--earth-dark); padding:2rem; position:relative;">
           <div style="color:var(--gold); font-size:0.85rem; margin-bottom:1rem; letter-spacing:0.1em;">★★★★★</div>
           <p style="font-family:var(--font-body); font-size:0.95rem; font-weight:300; font-style:italic; color:rgba(245,237,216,0.8); line-height:1.8; margin-bottom:1.5rem;">"It was an excellent stay! The house is very pleasant and has an excellent location, right in front of the river — and the elephants actually pass right in front of the house! The outdoor area is great, and the house has all the necessary amenities. The owner is very friendly and quick to respond. I highly recommend this place and would love to return!"</p>
-          <div style="font-family:var(--font-display); font-size:0.6rem; letter-spacing:0.25em; text-transform:uppercase; color:var(--ochre);">Ana &nbsp;·&nbsp; <span style="color:var(--text-muted);">January 2026 · Stayed with kids</span></div>
+          <div style="font-family:var(--font-display); font-size:0.72rem; letter-spacing:0.25em; text-transform:uppercase; color:var(--ochre);">Ana &nbsp;·&nbsp; <span style="color:var(--text-muted);">January 2026 · Stayed with kids</span></div>
         </div>
 
         <div style="background:var(--earth-dark); padding:2rem; position:relative;">
           <div style="color:var(--gold); font-size:0.85rem; margin-bottom:1rem; letter-spacing:0.1em;">★★★★★</div>
           <p style="font-family:var(--font-body); font-size:0.95rem; font-weight:300; font-style:italic; color:rgba(245,237,216,0.8); line-height:1.8; margin-bottom:1.5rem;">"My parents and I — one who is disabled — had an incredible stay in this magnificent lodge. Beautifully clean, well appointed and with incredibly friendly and efficient staff. Our host John was responsive in real time and very helpful. We have just arrived home and the only consolation is that we've already started planning our return trip. Book your stay now — highly recommended."</p>
-          <div style="font-family:var(--font-display); font-size:0.6rem; letter-spacing:0.25em; text-transform:uppercase; color:var(--ochre);">Andrew S. &nbsp;·&nbsp; <span style="color:var(--text-muted);">Sandton, South Africa · July 2025 · Group trip</span></div>
+          <div style="font-family:var(--font-display); font-size:0.72rem; letter-spacing:0.25em; text-transform:uppercase; color:var(--ochre);">Andrew S. &nbsp;·&nbsp; <span style="color:var(--text-muted);">Sandton, South Africa · July 2025 · Group trip</span></div>
         </div>
 
         <div style="background:var(--earth-dark); padding:2rem; position:relative;">
           <div style="color:var(--gold); font-size:0.85rem; margin-bottom:1rem; letter-spacing:0.1em;">★★★★★</div>
           <p style="font-family:var(--font-body); font-size:0.95rem; font-weight:300; font-style:italic; color:rgba(245,237,216,0.8); line-height:1.8; margin-bottom:1.5rem;">"From the terrace and pool we could watch wildlife every day — elephants walking past the house, monkeys on the roof, turtles, impalas, buffalo nearby, and crocodiles in the river. Waking up to animals right outside the fence was simply magical. Our guide Ernest, with 32 years of experience, was fantastic. One of the most special travel experiences we've ever had."</p>
-          <div style="font-family:var(--font-display); font-size:0.6rem; letter-spacing:0.25em; text-transform:uppercase; color:var(--ochre);">Bahare &nbsp;·&nbsp; <span style="color:var(--text-muted);">March 2026 · Stayed a few nights</span></div>
+          <div style="font-family:var(--font-display); font-size:0.72rem; letter-spacing:0.25em; text-transform:uppercase; color:var(--ochre);">Bahare &nbsp;·&nbsp; <span style="color:var(--text-muted);">March 2026 · Stayed a few nights</span></div>
         </div>
 
       </div>
@@ -2338,30 +2332,23 @@
 
             var payload = {
               email: email,
-              fields: {
-                name: first,
-                last_name: last,
-                phone: phone,
-                checkin: checkin,
-                checkout: checkout,
-                guests: guests,
-                message: message
-              },
-              groups: ['183297776718709816'],
-              status: 'active'
+              first_name: first,
+              last_name: last,
+              phone: phone,
+              checkin: checkin,
+              checkout: checkout,
+              guests: guests,
+              message: message
             };
 
             try {
-              var resp = await fetch('https://connect.mailerlite.com/api/subscribers', {
+              var resp = await fetch('/subscribe', {
                 method: 'POST',
-                headers: {
-                  'Content-Type': 'application/json',
-                  'Authorization': 'Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJhdWQiOiI0IiwianRpIjoiMWQzMTIxNmJhZjkwYWNiODAzYmViNjUwZTczOGNiYTJhYTc1MmY1YzRjYTI2MTI0MjU3OTk2ODU0MGNmMjg0OTNmMzQ0NTY3MmFkZmRmNTkiLCJpYXQiOjE3NzQ4Mzg0ODIuNzU0NDQxLCJuYmYiOjE3NzQ4Mzg0ODIuNzU0NDQ0LCJleHAiOjQ5MzA1MTIwODIuNzQ3NjM5LCJzdWIiOiIyMjUwNDcwIiwic2NvcGVzIjpbXX0.Zayp3igJCLjgoClctLWt2inpLg-UoAfDo6lTJZwyQI0Gmu0QNd9I914-F1aXmvXHjkhcDZ-CgKQl7Pzouel4Kc_PhB1AhxXTK1PTaWJ14Aa2ndk35wntGgJ723AT5GLWIIL3h0Fn9_AJHwzmNJ93D0pHjnCz3X0rqMrMIRdHeEJollxnZTK8DFDMbRXopwEJ7NiXj-YFS5DwjAUp81DpYNQd_7_BvzduAJSLlzvqLx3s4M13KsCIRu1oFDzEPbxk4vkmj5qBZBBsglpNkOWb739GuAZ41yTUH5rOjKx1v8LXvh9CU4b6muwAhAb69wq-SJoqmIr0Yq7rNY5fi9GmqObxr-w-hghdVfUys3aVlEIvou0i-sdb2St_G60XYYN3kWhQxBo775my8OEUQ-eeQ4RngHpBFUm4rhtdONPb9XHEJj6CGqYtuCU9GXHXbTwqqS406gPkLZUjw_18HMCrGE3AG_DDAfobc10cYwwc1K16UYhRBJ2zQ_7jinp7P48q8TdIz448GrWvbfnpmtN0nIFeUksQfChB5cowE1F9im9LAAhgScW2ujki00HX5kOx6pRYk3-Ee2MGphLA1baMV3bKAiEG-E5G-op5iUkr8sT6gxkrEeYzSDq892abeFn-2L4uYS-uk3taW5fwJg-OVOZNWN7xPufx-VzOkcEZ_QU'
-                },
+                headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify(payload)
               });
 
-              if (resp.ok || resp.status === 201 || resp.status === 200) {
+              if (resp.ok) {
                 document.getElementById('enquiry-form').style.display = 'none';
                 document.getElementById('enquiry-success').style.display = 'block';
               } else {
@@ -2386,22 +2373,47 @@
       <p style="font-family:var(--font-display); font-size:0.65rem; letter-spacing:0.25em; text-transform:uppercase; color:var(--text-muted); margin-bottom:2rem; overflow-wrap:break-word;">Erf 5 · 4 River Road · Mjejane Game Reserve · Hectorspruit 1320 · Mpumalanga · South Africa · GPS: -25.40852014692068, 31.67378618766117</p>
     </div>
     <!-- Leaflet map — satellite view, single pin -->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet@1.9.4/dist/leaflet.min.css"/>
-    <script src="https://cdn.jsdelivr.net/npm/leaflet@1.9.4/dist/leaflet.min.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet@1.9.4/dist/leaflet.min.css" integrity="sha384-b8ANgTJvdlAnWM5YGMpKn7Kodm+1k7NYNG9zdjTCcZcKatzYHwZ0RLdWarbJJVzU" crossorigin="anonymous"/>
+    <script src="https://cdn.jsdelivr.net/npm/leaflet@1.9.4/dist/leaflet.min.js" integrity="sha384-u5N8qJeJOO2iqNjIKTdl6KeKsEikMAmCUBPc6sC6uGpgL34aPJ4VgNhuhumedpEk" crossorigin="anonymous" defer></script>
     <style>
       #lodge-map { width:100%; height:560px; border-top:1px solid rgba(226, 185, 74, 0.2); border-bottom:1px solid rgba(226, 185, 74, 0.2); }
-      .leaflet-popup-content-wrapper { background:rgba(15,11,4,0.92); border:1px solid rgba(226, 185, 74, 0.4); border-radius:4px; box-shadow:0 4px 24px rgba(0,0,0,0.7); color:#f5edd8; padding:0; }
+      .leaflet-popup-content-wrapper { background:var(--earth-deep); opacity:0.95; border:1px solid rgba(226, 185, 74, 0.4); border-radius:4px; box-shadow:0 4px 24px rgba(0,0,0,0.7); color:var(--cream); padding:0; }
       .leaflet-popup-content { margin:14px 18px; }
-      .leaflet-popup-tip { background:rgba(15,11,4,0.92); }
+      .leaflet-popup-tip { background:var(--earth-deep); }
       .leaflet-popup-close-button { color:rgba(226, 185, 74, 0.7) !important; font-size:18px !important; top:6px !important; right:8px !important; }
-      .leaflet-control-zoom a { background:rgba(15,11,4,0.85) !important; color:#e2b94a !important; border-color:rgba(226, 185, 74, 0.3) !important; backdrop-filter:blur(4px); }
-      .leaflet-control-zoom a:hover { background:rgba(40,28,8,0.95) !important; }
+      .leaflet-control-zoom a { background:var(--earth-deep) !important; color:var(--gold) !important; border-color:rgba(226, 185, 74, 0.3) !important; backdrop-filter:blur(4px); }
+      .leaflet-control-zoom a:hover { background:var(--earth-mid) !important; }
       .leaflet-control-attribution { background:rgba(0,0,0,0.55) !important; color:rgba(255,255,255,0.4) !important; font-size:10px !important; backdrop-filter:blur(4px); }
       .leaflet-control-attribution a { color:rgba(226, 185, 74, 0.5) !important; }
     </style>
     <div id="lodge-map"></div>
     <script>
-      window.addEventListener('load', function() {
+      (function() {
+        var mapEl = document.getElementById('lodge-map');
+        if (!mapEl) return;
+        var initialised = false;
+        function initMap() {
+          if (initialised) return;
+          initialised = true;
+          if (typeof L === 'undefined') {
+            // Leaflet script still loading — retry on its load event
+            var s = document.querySelector('script[src*="leaflet.min.js"]');
+            if (s) s.addEventListener('load', function() { initialised = false; initMap(); }, { once: true });
+            return;
+          }
+          renderMap();
+        }
+        if ('IntersectionObserver' in window) {
+          var io = new IntersectionObserver(function(entries) {
+            entries.forEach(function(e) {
+              if (e.isIntersecting) { initMap(); io.disconnect(); }
+            });
+          }, { rootMargin: '200px' });
+          io.observe(mapEl);
+        } else {
+          window.addEventListener('load', initMap, { once: true });
+        }
+      function renderMap() {
         var map = L.map('lodge-map', { zoomControl: true, scrollWheelZoom: false }).setView([-25.40852014692068, 31.67378618766117], 15);
 
         // Esri World Imagery — free satellite tiles, no API key needed
@@ -2421,7 +2433,7 @@
         var goldIcon = L.divIcon({
           className: '',
           html: '<div style="position:relative;width:44px;height:52px;">'
-              + '<div style="width:34px;height:34px;background:linear-gradient(135deg,#f0cc6a,#c9952a);border-radius:50% 50% 50% 0;transform:rotate(-45deg);border:2.5px solid rgba(0,0,0,0.8);box-shadow:0 0 0 4px rgba(226, 185, 74, 0.25),0 0 16px rgba(226, 185, 74, 0.4),0 6px 16px rgba(0,0,0,0.6);position:absolute;top:0;left:5px;"></div>'
+              + '<div style="width:34px;height:34px;background:var(--gold);border-radius:50% 50% 50% 0;transform:rotate(-45deg);border:2.5px solid rgba(0,0,0,0.8);box-shadow:0 0 0 4px rgba(226, 185, 74, 0.25),0 0 16px rgba(226, 185, 74, 0.4),0 6px 16px rgba(0,0,0,0.6);position:absolute;top:0;left:5px;"></div>'
               + '<div style="width:10px;height:10px;background:rgba(0,0,0,0.75);border-radius:50%;position:absolute;top:11px;left:17px;"></div>'
               + '</div>',
           iconSize: [44, 52],
@@ -2433,63 +2445,66 @@
           .addTo(map)
           .bindPopup(
             '<div>'
-            + '<div style="font-family:\'Cinzel\',serif;font-size:0.8rem;letter-spacing:0.14em;text-transform:uppercase;color:#e2b94a;margin-bottom:5px;">Crocodile Rock River Lodge</div>'
+            + '<div style="font-family:var(--font-display);font-size:0.8rem;letter-spacing:0.14em;text-transform:uppercase;color:var(--gold);margin-bottom:5px;">Crocodile Rock River Lodge</div>'
             + '<div style="font-size:0.78rem;color:rgba(245,237,216,0.7);letter-spacing:0.03em;">Mjejane Game Reserve · Mpumalanga</div>'
             + '<div style="font-size:0.7rem;color:rgba(245,237,216,0.38);margin-top:4px;font-family:monospace;letter-spacing:0.05em;">-25.40852014692068, 31.67378618766117</div>'
             + '</div>'
           )
           .openPopup();
-      });
+      }
+      })();
     </script>
     <div style="padding:2rem clamp(1.5rem,6vw,6rem) 5rem; display:grid; grid-template-columns:repeat(auto-fit, minmax(240px,1fr)); gap:2rem;" class="reveal">
       <div style="display:flex; align-items:flex-start; gap:1rem;">
         <span style="color:var(--ochre); font-size:0.9rem; margin-top:2px;">📍</span>
         <div>
-          <div style="font-family:var(--font-display); font-size:0.6rem; letter-spacing:0.25em; text-transform:uppercase; color:var(--ochre); margin-bottom:0.3rem;">Where You'll Be</div>
+          <div style="font-family:var(--font-display); font-size:0.72rem; letter-spacing:0.25em; text-transform:uppercase; color:var(--ochre); margin-bottom:0.3rem;">Where You'll Be</div>
           <div style="font-size:0.88rem; font-weight:300; color:rgba(245,237,216,0.65);">Erf 5, Mjejane Private Game Reserve. A quiet erf of only 9 homes, each with 2,400 m² of private garden and bush.</div>
         </div>
       </div>
       <div style="display:flex; align-items:flex-start; gap:1rem;">
         <span style="color:var(--ochre); font-size:0.9rem; margin-top:2px;">🚗</span>
         <div>
-          <div style="font-family:var(--font-display); font-size:0.6rem; letter-spacing:0.25em; text-transform:uppercase; color:var(--ochre); margin-bottom:0.3rem;">Parking</div>
+          <div style="font-family:var(--font-display); font-size:0.72rem; letter-spacing:0.25em; text-transform:uppercase; color:var(--ochre); margin-bottom:0.3rem;">Parking</div>
           <div style="font-size:0.88rem; font-weight:300; color:rgba(245,237,216,0.65);">2 spaces right outside the front door + 2 in the carport. All on-site, free of charge.</div>
         </div>
       </div>
       <div style="display:flex; align-items:flex-start; gap:1rem;">
         <span style="color:var(--ochre); font-size:0.9rem; margin-top:2px;">🛒</span>
         <div>
-          <div style="font-family:var(--font-display); font-size:0.6rem; letter-spacing:0.25em; text-transform:uppercase; color:var(--ochre); margin-bottom:0.3rem;">Supplies En Route</div>
+          <div style="font-family:var(--font-display); font-size:0.72rem; letter-spacing:0.25em; text-transform:uppercase; color:var(--ochre); margin-bottom:0.3rem;">Supplies En Route</div>
           <div style="font-size:0.88rem; font-weight:300; color:rgba(245,237,216,0.65);">Stock up at Malelane Spar or Woolworths Food, or Komatispoort Spar on your way in.</div>
         </div>
       </div>
       <div style="display:flex; align-items:flex-start; gap:1rem;">
         <span style="color:var(--ochre); font-size:0.9rem; margin-top:2px;">✈️</span>
         <div>
-          <div style="font-family:var(--font-display); font-size:0.6rem; letter-spacing:0.25em; text-transform:uppercase; color:var(--ochre); margin-bottom:0.3rem;">Nearest Airport</div>
+          <div style="font-family:var(--font-display); font-size:0.72rem; letter-spacing:0.25em; text-transform:uppercase; color:var(--ochre); margin-bottom:0.3rem;">Nearest Airport</div>
           <div style="font-size:0.88rem; font-weight:300; color:rgba(245,237,216,0.65);">Kruger Mpumalanga International (KMIA) · ~45 min drive</div>
         </div>
       </div>
       <div style="display:flex; align-items:flex-start; gap:1rem;">
         <span style="color:var(--ochre); font-size:0.9rem; margin-top:2px;">🚪</span>
         <div>
-          <div style="font-family:var(--font-display); font-size:0.6rem; letter-spacing:0.25em; text-transform:uppercase; color:var(--ochre); margin-bottom:0.3rem;">Kruger Gates</div>
+          <div style="font-family:var(--font-display); font-size:0.72rem; letter-spacing:0.25em; text-transform:uppercase; color:var(--ochre); margin-bottom:0.3rem;">Kruger Gates</div>
           <div style="font-size:0.88rem; font-weight:300; color:rgba(245,237,216,0.65);">Malelane Gate &amp; Crocodile Bridge Gate both nearby for self-drive game viewing.</div>
         </div>
       </div>
       <div style="display:flex; align-items:flex-start; gap:1rem;">
         <span style="color:var(--ochre); font-size:0.9rem; margin-top:2px;">🏙️</span>
         <div>
-          <div style="font-family:var(--font-display); font-size:0.6rem; letter-spacing:0.25em; text-transform:uppercase; color:var(--ochre); margin-bottom:0.3rem;">From Johannesburg</div>
+          <div style="font-family:var(--font-display); font-size:0.72rem; letter-spacing:0.25em; text-transform:uppercase; color:var(--ochre); margin-bottom:0.3rem;">From Johannesburg</div>
           <div style="font-size:0.88rem; font-weight:300; color:rgba(245,237,216,0.65);">~4 hours via the N4 highway. Take the Hectorspruit exit.</div>
         </div>
       </div>
     </div>
   </section>
 
+  </main>
+
   <!-- Footer -->
   <footer>
-    <a href="#" class="footer-logo">Crocodile Rock River Lodge</a>
+    <a href="#top" class="footer-logo">Crocodile Rock River Lodge</a>
     <div class="footer-copy">© 2026 Crocodile Rock River Lodge. All content copyright Crocodile Rock River Lodge. Unauthorised reproduction prohibited.</div>
   </footer>
 
@@ -2539,16 +2554,42 @@
 
     reveals.forEach(el => observer.observe(el));
 
-    // Hero slideshow
+    // Hero slideshow — defers loading of slides 2-N until after first paint
     (function() {
       const slides = document.querySelectorAll('.hero-slide');
+      if (slides.length === 0) return;
+
+      function hydrateDeferredSlides() {
+        slides.forEach(s => {
+          const bg = s.getAttribute('data-bg');
+          if (bg) {
+            s.style.backgroundImage = `url('${bg}')`;
+            s.removeAttribute('data-bg');
+          }
+        });
+      }
+      if (document.readyState === 'complete') {
+        hydrateDeferredSlides();
+      } else {
+        window.addEventListener('load', hydrateDeferredSlides, { once: true });
+      }
+
+      const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+      if (reduceMotion) return;
+
       let current = 0;
+      let intervalId = null;
       function nextSlide() {
         slides[current].classList.remove('active');
         current = (current + 1) % slides.length;
         slides[current].classList.add('active');
       }
-      setInterval(nextSlide, 5000);
+      function start() { if (!intervalId) intervalId = setInterval(nextSlide, 5000); }
+      function stop() { if (intervalId) { clearInterval(intervalId); intervalId = null; } }
+      start();
+      document.addEventListener('visibilitychange', () => {
+        if (document.hidden) stop(); else start();
+      });
     })();
 
     // Gallery lightbox
@@ -2659,7 +2700,15 @@
     // Smooth scroll for anchor links
     document.querySelectorAll('a[href^="#"]').forEach(a => {
       a.addEventListener('click', (e) => {
-        const target = document.querySelector(a.getAttribute('href'));
+        const href = a.getAttribute('href');
+        if (!href || href === '#' || href === '#top') {
+          e.preventDefault();
+          window.scrollTo({ top: 0, behavior: 'smooth' });
+          return;
+        }
+        const id = href.slice(1);
+        let target = null;
+        try { target = document.getElementById(id); } catch {}
         if (target) {
           e.preventDefault();
           target.scrollIntoView({ behavior: 'smooth' });
